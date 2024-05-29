@@ -57,6 +57,16 @@ section.abs-section {
     right: 0;
     width: 40%;
 }
+.abs-section {
+    position: relative;
+    min-height: 100vh;
+    background-image: url("../images/hero-bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
 .abs-section p {
     color: #F9F6F0;
     margin-right: 45%;
@@ -66,10 +76,12 @@ section.abs-section {
     padding: 6px;
     margin-bottom: 32px;
 }
+
 .abs-section p span a {
     text-decoration: none;
     color: #FF9D2E;
 }
+
 @media screen and (max-width: 1000px) {
     .abs-section {
         height: auto;
@@ -84,7 +96,7 @@ section.abs-section {
         padding: 8px 12px;
         font-size: 40px;
     }
-    .abs-image img{
+    .abs-image img {
         position: relative;
         width: 100%;
     }

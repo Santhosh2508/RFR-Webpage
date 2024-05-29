@@ -19,6 +19,44 @@
     <!-- javascript code -->
     <script src="assets/js/script.js" defer></script>
     <script src="assets/js/reservation.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dateInput = document.querySelector('input[type="date"]');
+            const timeInput = document.querySelector('input[type="time"]');
+    
+            const setMinDate = () => {
+                const tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                const minDate = tomorrow.toISOString().split('T')[0];
+                dateInput.setAttribute('min', minDate);
+            };
+    
+            const setMinMaxTime = () => {
+                const minTime = '10:00';
+                const maxTime = '22:00';
+                timeInput.setAttribute('min', minTime);
+                timeInput.setAttribute('max', maxTime);
+            };
+    
+            const validateTime = () => {
+                const selectedTime = timeInput.value;
+                const minTime = '10:00';
+                const maxTime = '22:00';
+    
+                if (selectedTime < minTime || selectedTime > maxTime) {
+                    alert('Please select a time between 10:00 AM and 10:00 PM /22:00 Hr.');
+                    timeInput.value = '';
+                }
+            };
+    
+            setMinDate();
+            setMinMaxTime();
+    
+            timeInput.addEventListener('change', validateTime);
+        });
+    </script>
+    
 </head>
 
 <body>
@@ -77,7 +115,8 @@
                         </div>
                         <div class="input-box">
                             <label for="time">Timing</label>
-                            <input type="time" placeholder="Enter phone number" name="time" required>
+                            <input type="time"  placeholder="Enter time" name="time" required>
+
                         </div>
                     </div>
                     <div class="button-container">
